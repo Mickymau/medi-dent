@@ -1,0 +1,217 @@
+================================================================
+MEDI-DENT · PROMPT 3 z 7
+css/components.css + css/responsive.css
+================================================================
+
+Kontynuujemy budowę strony Medi-Dent. Masz już zapisane:
+- C:\Users\Michał\Desktop\strona internetowa medi dent\css\tokens.css
+- C:\Users\Michał\Desktop\strona internetowa medi dent\css\base.css
+- C:\Users\Michał\Desktop\strona internetowa medi dent\css\layout.css
+- C:\Users\Michał\Desktop\strona internetowa medi dent\css\animations.css
+
+FOLDER PROJEKTU:
+C:\Users\Michał\Desktop\strona internetowa medi dent\
+
+CZCIONKA: Jost (wght 300;400;500;600) — spójna we wszystkich plikach.
+IKONY: wyłącznie minimalistyczne SVG inline (stroke, nie fill, stroke-width 1.5).
+CHARAKTER: elegancki minimalizm. Komponenty czyste, przestrzenne, premium.
+Żadnych krzykliwych gradientów, grubych ramek, infantylnych elementów.
+
+ZADANIE W TYM PROMPCIE:
+Napisz i zapisz na dysk dwa pliki:
+1. C:\Users\Michał\Desktop\strona internetowa medi dent\css\components.css
+2. C:\Users\Michał\Desktop\strona internetowa medi dent\css\responsive.css
+
+════════════════════════════════════════
+css/components.css
+════════════════════════════════════════
+
+PRZYCISKI:
+.btn: inline-flex, align-items center, gap space-2, font-family font-body,
+      font-size text-xs, font-weight 500, letter-spacing 0.10em,
+      text-transform uppercase, padding 0.85rem 2rem,
+      border-radius radius-pill, cursor pointer, white-space nowrap,
+      transition 0.35s ease-out.
+.btn--primary: background navy, color white, border 1px solid navy.
+  hover: background navy-80, transform translateY(-1px), shadow-md.
+.btn--outline: transparent, border 1px solid navy, color navy.
+  hover: background navy, color white.
+.btn--light: background white, color navy, border 1px solid white.
+  hover: background transparent, color white. (użyj na ciemnym tle)
+.btn--ghost: no border, no bg, padding-inline 0, color navy, font-weight 400,
+             letter-spacing 0.06em. Strzałka → (::after content '\2192'),
+             hover: strzałka translateX(6px), transition transform 0.35s ease-spring.
+.btn--gold: background gold, color white, border 1px solid gold.
+  hover: background gold-hover, transform translateY(-1px).
+  TYLKO dla głównego CTA "Zadzwoń" — używaj bardzo oszczędnie.
+.btn--sm: padding 0.65rem 1.5rem, font-size 0.68rem.
+
+KARTY USŁUG:
+.service-card: background white, border 1px solid var(--color-border),
+               border-radius radius-md, padding space-8,
+               transition transform 0.35s ease-out, box-shadow 0.35s ease-out.
+  hover: transform translateY(-4px), shadow-md, border-color var(--color-navy-20).
+.service-card__icon-wrap: width 40px, height 40px, margin-bottom space-6.
+  SVG: stroke navy-40, fill none, stroke-width 1.5, width 40px height 40px.
+  Ikona subtelna — NIE dominuje nad treścią.
+.service-card__title: font-display, text-xl, font-weight 400, navy,
+                      margin-bottom space-3, line-height tight, letter-spacing -0.01em.
+.service-card__desc: font-body, text-sm, font-weight 400, muted, line-height loose.
+.service-card__link: btn--ghost, text-xs, margin-top space-6,
+                     color navy-40 → navy na hover.
+
+Karta wyróżniona (leczenie kanałowe, wybielanie):
+.service-card--featured: background navy, border-color transparent.
+.service-card--featured .service-card__icon-wrap svg: stroke rgba(255,255,255,0.50).
+.service-card--featured .service-card__title: color white.
+.service-card--featured .service-card__desc: color rgba(255,255,255,0.58).
+.service-card--featured .service-card__link: color rgba(255,255,255,0.45) → white.
+.service-card--featured:hover: border-color rgba(255,255,255,0.12), shadow-lg.
+
+KARTY WARTOŚCI (o-gabinecie.html — prostsze niż service-card):
+.value-card: padding space-8 0, border-top 1px solid border.
+.value-card:first-child: border-top none lub padding-top 0.
+.value-card__icon-wrap: margin-bottom space-5.
+  SVG: stroke navy-20, fill none, stroke-width 1.5, width 32px height 32px.
+.value-card__title: font-display, text-lg, font-weight 400, navy,
+                    margin-bottom space-3, letter-spacing -0.01em.
+.value-card__desc: font-body, text-sm, muted, line-height loose.
+
+CENNIK:
+Desktop — tabela (.pricing-table):
+  width 100%, border-collapse collapse.
+  thead tr: border-bottom 1px solid border-mid.
+  th: font-body, text-xs, uppercase, letter-spacing 0.10em, muted,
+      text-left, padding-bottom space-4, font-weight 500.
+  td: font-body, text-sm, padding space-4 0, border-bottom 1px solid border,
+      color navy, vertical-align baseline.
+  tr:hover td: background navy-06.
+  tr:last-child td: border-bottom none.
+  .pricing-name: font-weight 400.
+  .pricing-price: font-display, text-base, navy, text-right,
+                  font-weight 400, white-space nowrap, letter-spacing -0.01em.
+
+Mobile — karty (.pricing-card):
+  display flex, justify-content space-between, align-items baseline,
+  border-bottom 1px solid border, padding space-5 0.
+  .pricing-card__name: font-body, text-sm, navy.
+  .pricing-card__price: font-display, text-base, navy, font-weight 400.
+
+OPINIE:
+.testimonial-card: background white, border 1px solid border,
+                   border-radius radius-lg, padding space-8,
+                   position relative.
+.testimonial-card::before: content '"', position absolute, top space-3, right space-6,
+                            font-display, font-size 5rem, line-height 1,
+                            color navy-06, pointer-events none, user-select none.
+.testimonial-card__stars: font-size 0.8rem, color gold, letter-spacing 0.05em,
+                           margin-bottom space-4.
+.testimonial-card__text: font-body, text-sm, font-weight 400, navy-80,
+                          line-height loose, font-style italic, margin-bottom space-6.
+.testimonial-card__author: display flex, align-items center, gap space-3.
+.testimonial-card__avatar: width 40px, height 40px, border-radius 50%,
+                             background navy-06, color navy-60, font-body, text-sm,
+                             font-weight 500, display flex, align-items center,
+                             justify-content center, flex-shrink 0.
+.testimonial-card__name: font-body, text-sm, font-weight 500, navy.
+
+FAQ (akordeony):
+.faq-item: border-bottom 1px solid border.
+.faq-item:first-child: border-top 1px solid border.
+.faq-question: display flex, justify-content space-between, align-items center,
+               padding space-6 0, cursor pointer, font-body, text-base,
+               font-weight 400, navy, gap space-4, text-align left,
+               background none, border none, width 100%.
+               hover: color navy-60. transition color 0.20s.
+.faq-question__icon: width 20px, height 20px, flex-shrink 0, position relative.
+  SVG: stroke navy-40, fill none, stroke-width 1.5.
+  Pozioma kreska zawsze widoczna, pionowa: transition transform 0.30s ease-out,
+  rotate(90deg) gdy is-open (plus → minus).
+.faq-answer: max-height 0, overflow hidden,
+             transition max-height 0.40s ease-out.
+.faq-answer.is-open: max-height 600px.
+.faq-answer__text: padding-bottom space-6, font-body, text-sm, font-weight 400,
+                    muted, line-height loose.
+
+CTA BLOCK (ciemna sekcja):
+.cta-block: background navy, padding clamp(space-16,10vw,space-24) space-8,
+            text-align center.
+.cta-block__label: .label + color rgba(255,255,255,0.30), margin-bottom space-4.
+.cta-block__title: font-display, clamp(2rem,5vw,3.2rem), font-weight 300,
+                   white, line-height 1.1, letter-spacing -0.02em,
+                   margin-bottom space-4.
+.cta-block__subtitle: font-body, text-base, font-weight 400,
+                       rgba(255,255,255,0.48), line-height loose,
+                       max-width 400px, margin-inline auto, margin-bottom space-10.
+.cta-block__phone: font-display, clamp(1.8rem,4vw,2.8rem), font-weight 300,
+                    white, letter-spacing -0.02em, display block,
+                    margin-bottom space-8. hover: opacity 0.75, transition.
+
+FLOATING PHONE BUTTON (tylko mobile):
+.floating-cta: position fixed, bottom space-6, right space-5, z-index 50,
+               display flex, align-items center, gap space-2,
+               background navy, color white, border-radius radius-pill,
+               padding space-3 space-5, font-body, text-sm, font-weight 500,
+               letter-spacing 0.04em, shadow-lg,
+               opacity 0, pointer-events none,
+               transition opacity 0.30s ease-out, transform 0.30s ease-out,
+               transform translateY(8px).
+  SVG ikona telefonu: width 16px height 16px, stroke white, fill none,
+                       stroke-width 1.5, flex-shrink 0.
+.floating-cta.is-visible: opacity 1, pointer-events auto, transform translateY(0).
+Animacja pulsowania: @keyframes pulse-soft scale(1)→scale(1.04)→scale(1),
+                     animation 3s ease-in-out infinite, delay 2.5s.
+
+BADGE:
+.badge: inline-block, font-body, text-xs, font-weight 500, letter-spacing 0.08em,
+        text-transform uppercase, padding 0.35rem 0.9rem,
+        background navy-06, color navy-60, border-radius radius-pill.
+
+════════════════════════════════════════
+css/responsive.css
+════════════════════════════════════════
+
+Mobile-first. Breakpointy: sm 480px, md 640px, lg 900px, xl 1100px.
+
+BASE (mobile — domyślny):
+- .pricing-table: display none.
+- .pricing-card: display flex (widoczne).
+- .floating-cta: widoczny (controlled by JS .is-visible).
+- .services-grid: grid 1fr.
+- .services-featured: grid 1fr.
+- .values-grid: grid 1fr.
+- .footer__grid: grid 1fr.
+- .nav__links: display none.
+- .nav__cta: display none.
+
+sm — 480px:
+- .services-grid: repeat(2, 1fr).
+
+md — 640px:
+- .services-featured: repeat(2, 1fr).
+- .pricing-table: display table.
+- .pricing-card: display none.
+- .values-grid: repeat(3, 1fr).
+- .footer__grid: repeat(2, 1fr).
+
+lg — 900px:
+- .nav__links: display flex.
+- .nav__cta: display inline-flex.
+- .nav__hamburger: display none.
+- .services-grid: repeat(3, 1fr).
+- .about-layout: repeat(2, 1fr).
+- .contact-layout: 1fr 1.3fr.
+- .testimonials-grid: repeat(3, 1fr).
+- .footer__grid: 1.6fr 1fr 1fr.
+- .floating-cta: display none (telefon widoczny w nav).
+
+xl — 1100px:
+- .hero__content: max-width 700px.
+- Finalne dopasowania typografii i odstępów.
+
+PRINT:
+@media print:
+- Ukryj: .nav, .nav__mobile, .floating-cta, .footer, .hero__values.
+- body: font-size 12pt, color #000, background #fff.
+- .hero: min-height auto, padding 2cm 0.
+- a: color #000, text-decoration underline.

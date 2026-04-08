@@ -1,0 +1,181 @@
+================================================================
+MEDI-DENT · PROMPT 2 z 7
+css/layout.css + css/animations.css
+================================================================
+
+Kontynuujemy budowę strony Medi-Dent. Masz już zapisane:
+- C:\Users\Michał\Desktop\strona internetowa medi dent\css\tokens.css
+- C:\Users\Michał\Desktop\strona internetowa medi dent\css\base.css
+
+FOLDER PROJEKTU:
+C:\Users\Michał\Desktop\strona internetowa medi dent\
+
+CZCIONKA: Jost (wght 300;400;500;600) z Google Fonts — we wszystkich plikach.
+IKONY: wyłącznie minimalistyczne SVG inline (stroke, nie fill, stroke-width 1.5).
+CHARAKTER: elegancki minimalizm, ciepły profesjonalizm, dużo przestrzeni.
+
+ZADANIE W TYM PROMPCIE:
+Napisz i zapisz na dysk dwa pliki:
+1. C:\Users\Michał\Desktop\strona internetowa medi dent\css\layout.css
+2. C:\Users\Michał\Desktop\strona internetowa medi dent\css\animations.css
+
+════════════════════════════════════════
+css/layout.css
+════════════════════════════════════════
+
+KONTENER I SEKCJE:
+.container: max-width var(--container-max), margin-inline auto,
+            padding-inline var(--container-px)
+.container--narrow: max-width 720px
+.section: padding-block var(--section-py)
+.section--alt: background var(--color-bg)
+.section--dark: background var(--color-navy), color white
+.section--warm: background var(--color-bg-warm)
+
+NAWIGACJA (sticky, frosted glass po scrollu):
+.nav: position fixed, top 0, width 100%, height 72px, z-index 100,
+      background transparent, transition background/shadow 0.45s ease-out.
+      Na hero: przezroczysta, linki białe.
+.nav.is-scrolled: background rgba(254,252,250,0.94),
+                  backdrop-filter blur(20px), box-shadow var(--shadow-nav).
+                  Linki granatowe.
+.nav__inner: flex, align-items center, justify-content space-between,
+             max-width container, padding-inline, gap space-8.
+
+Logo (.nav__logo):
+- .nav__logo-name: "Medi-Dent" — font-display, font-size 1.2rem,
+  font-weight 500, letter-spacing -0.01em.
+  Białe na hero, navy po is-scrolled.
+- .nav__logo-tagline: "Gabinet Stomatologiczny" — font-body, text-xs,
+  letter-spacing 0.10em, uppercase, opacity 0.45. Jost weight 400.
+
+Linki (.nav__links): hidden mobile, flex od LG, gap space-10.
+.nav__link: font-body, text-sm, font-weight 400, letter-spacing 0.01em,
+            position relative. Podkreślenie slide na hover (::after,
+            width 0 → 100%, 1px, transition). Białe na hero, navy-80 po is-scrolled.
+
+.nav__cta: przycisk "Zadzwoń" — btn--outline, hidden mobile, visible od LG.
+           Biały kontur na hero, granatowy kontur po is-scrolled.
+.nav__hamburger: 3 kreski 24px, animacja X przy is-open (span transform).
+.nav__mobile: fullscreen overlay, background bg-warm,
+              flex column center, gap space-8, opacity/pointer-events transition.
+.nav__mobile-link: font-display, font-size clamp(1.8rem,6vw,3rem),
+                   font-weight 300, letter-spacing -0.02em, navy.
+
+HERO (index.html — pełna wysokość, ciemne granatowe tło):
+.hero: min-height 100svh, position relative, display flex,
+       align-items center, overflow hidden.
+.hero__bg: position absolute inset 0, background var(--color-navy).
+
+Dekoracje geometryczne CSS (TYLKO CSS, bez obrazków, aria-hidden="true"):
+- Duże koło (500px) prawy górny róg:
+  position absolute, top -100px, right -100px, width 500px, height 500px,
+  border-radius 50%, border 1px solid rgba(255,255,255,0.05).
+- Mniejsze koło (280px) z przesunięciem:
+  top 60px, right 80px, border rgba(255,255,255,0.035).
+- Pozioma linia po lewej:
+  position absolute, left 0, top 50%, width 60px, height 1px,
+  background rgba(255,255,255,0.12).
+
+.hero__overlay: gradient od rgba(27,43,75,0.4) 0% do transparent 65% (od dołu).
+.hero__content: position relative, z-index 2, padding-top calc(72px + 5vw),
+                padding-bottom clamp(4rem,8vw,7rem).
+.hero__label: .label + kolor rgba(255,255,255,0.40), margin-bottom space-5.
+.hero__title: font-display, text-hero, font-weight 300, color white,
+              line-height 1.08, letter-spacing -0.025em, margin-bottom space-6,
+              max-width 640px.
+.hero__subtitle: font-body, text-md, font-weight 400,
+                 color rgba(255,255,255,0.58), line-height leading-loose,
+                 max-width 480px, margin-bottom space-10.
+.hero__actions: flex, flex-wrap, gap space-4.
+.hero__values: display flex, gap space-8, margin-top space-14,
+               flex-wrap wrap, padding-top space-8,
+               border-top 1px solid rgba(255,255,255,0.10).
+.hero__value: flex, align-items center, gap space-3.
+.hero__value-icon: width 18px, height 18px, stroke white, fill none,
+                   opacity 0.55, flex-shrink 0.
+.hero__value-text: font-body, text-sm, font-weight 400,
+                   color rgba(255,255,255,0.58), letter-spacing 0.01em.
+
+PAGE HERO (nagłówek podstron — jasny, kompaktowy):
+.page-hero: padding-top calc(72px + clamp(3rem,7vw,5rem)),
+            padding-bottom clamp(2.5rem,5vw,4rem),
+            border-bottom 1px solid var(--color-border).
+.page-hero__label: .label, margin-bottom space-4.
+.page-hero__title: font-display, clamp(2rem,5vw,3.8rem),
+                   font-weight 300, navy, line-height 1.1, letter-spacing -0.02em.
+.page-hero__subtitle: font-body text-md, muted, max-width 500px,
+                      line-height loose, margin-top space-4, font-weight 400.
+
+SEKCJE PODSTRON — layouty (grid/flex, bez stylów komponentów):
+.about-layout: grid 1fr → 1fr 1fr od LG, gap clamp(space-10,6vw,space-20),
+               align-items start.
+.services-featured: grid 1fr → 1fr 1fr od MD.
+.services-grid: grid 1fr → 1fr 1fr od SM → repeat(3,1fr) od LG, gap space-6.
+.values-grid: grid 1fr → repeat(3,1fr) od MD, gap space-6.
+.testimonials-grid: grid 1fr → repeat(3,1fr) od LG, gap space-6.
+.faq-list: display flex, flex-direction column.
+.contact-layout: grid 1fr → 1fr 1.3fr od LG,
+                 gap clamp(space-12,8vw,space-24).
+
+STOPKA:
+.footer: background navy, color white,
+         padding-block clamp(space-16,8vw,space-24) space-10.
+.footer__grid: grid 1fr → 1.6fr 1fr 1fr od LG, gap space-12.
+.footer__brand-name: font-display, text-xl, font-weight 400, white,
+                     letter-spacing -0.01em, margin-bottom space-3.
+.footer__brand-tagline: font-body text-sm, rgba white 0.40, line-height loose,
+                        max-width 240px.
+.footer__heading: font-body text-xs, uppercase, letter-spacing 0.12em,
+                  rgba white 0.28, margin-bottom space-5.
+.footer__links: flex, column, gap space-3.
+.footer__link: font-body text-sm, rgba white 0.52, hover white, transition.
+.footer__contact-label: font-body text-xs, rgba white 0.28, uppercase,
+                         letter-spacing wide.
+.footer__contact-value: font-body text-sm, rgba white 0.62, hover white.
+.footer__bottom: flex, space-between, flex-wrap, gap space-3,
+                 border-top 1px solid rgba(255,255,255,0.08),
+                 padding-top space-8, margin-top space-16.
+.footer__copy: font-body text-xs, rgba white 0.20.
+
+════════════════════════════════════════
+css/animations.css
+════════════════════════════════════════
+
+REVEAL przy scrollu (JS dodaje .is-visible przez IntersectionObserver):
+.reveal: opacity 0, transform translateY(22px),
+         transition opacity 0.80s ease-out, transform 0.80s ease-out.
+.reveal.is-visible: opacity 1, transform translateY(0).
+.reveal-delay-1: transition-delay 0.10s
+.reveal-delay-2: transition-delay 0.20s
+.reveal-delay-3: transition-delay 0.32s
+.reveal-delay-4: transition-delay 0.45s
+.reveal-delay-5: transition-delay 0.58s
+.reveal-left: translateX(-18px) wariant + is-visible translateX(0).
+.reveal-scale: scale(0.96) wariant + is-visible scale(1).
+
+HERO ANIMACJE (@keyframes, bez JS — staggered wejście przy ładowaniu):
+@keyframes hero-fade-up: opacity 0 + translateY(26px) → opacity 1 + translateY(0).
+@keyframes hero-fade-in: opacity 0 → opacity 1.
+
+.hero__label:    animation hero-fade-up 0.9s ease-out 0.10s both
+.hero__title:    animation hero-fade-up 0.9s ease-out 0.25s both
+.hero__subtitle: animation hero-fade-up 0.9s ease-out 0.42s both
+.hero__actions:  animation hero-fade-up 0.9s ease-out 0.58s both
+.hero__values:   animation hero-fade-up 0.9s ease-out 0.72s both
+
+PAGE TRANSITION:
+@keyframes page-in: opacity 0 + translateY(6px) → opacity 1 + translateY(0).
+main: animation page-in 0.45s ease-out 0.05s both.
+
+LAZY IMAGES:
+img[loading="lazy"].is-loaded: opacity 1, transition 0.55s ease-out.
+
+HOVER UTILITIES:
+.hover-underline: podkreślenie slide (::after, width 0→100%, 1px, transition 0.35s).
+.hover-zoom: overflow hidden. .hover-zoom img: scale 1.04 na hover, transition 0.6s.
+.hover-lift: translateY(-3px) + shadow-md na hover, transition 0.35s.
+
+PREFERS-REDUCED-MOTION:
+@media (prefers-reduced-motion: reduce) — wszystkie animacje i przejścia wyłączone,
+.reveal i warianty: opacity 1, transform none od razu.

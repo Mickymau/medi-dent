@@ -1,0 +1,296 @@
+/* ================================================================
+   MEDI-DENT · responsive.css
+   Mobile-first breakpoints: sm 480px, md 640px, lg 900px, xl 1100px
+   ================================================================ */
+
+/* ── BASE (mobile — domyślny) ───────────────────────────────────── */
+
+/* Tabela cennika ukryta na mobile — widoczne karty */
+.pricing-table {
+  display: none;
+}
+
+.pricing-card {
+  display: flex;
+}
+
+/* Floating CTA — widoczność kontrolowana przez JS (.is-visible) */
+.floating-cta {
+  display: flex;
+}
+
+/* Siatki — jeden kolumna na mobile */
+.services-grid {
+  grid-template-columns: 1fr;
+}
+
+.services-featured {
+  grid-template-columns: 1fr;
+}
+
+.values-grid {
+  grid-template-columns: 1fr;
+}
+
+.testimonials-grid {
+  grid-template-columns: 1fr;
+}
+
+.footer__grid {
+  grid-template-columns: 1fr;
+}
+
+/* Nawigacja — linki i CTA ukryte, hamburger widoczny */
+.nav__links {
+  display: none;
+}
+
+.nav__cta {
+  display: none;
+}
+
+.nav__hamburger {
+  display: flex;
+}
+
+/* About layout — jedna kolumna */
+.about-layout {
+  grid-template-columns: 1fr;
+}
+
+/* Contact layout — jedna kolumna */
+.contact-layout {
+  grid-template-columns: 1fr;
+}
+
+/* Marginesy sekcji — ciaśniej na mobile */
+.section-header {
+  margin-bottom: var(--space-10);
+}
+
+/* Hero — mniej padding-top na małych ekranach */
+.hero__values {
+  gap: var(--space-5);
+}
+
+/* Cennik — tabela ukryta, karty widoczne */
+.pricing-table {
+  display: none;
+}
+
+/* Page hero — mniejszy tytuł na mobile */
+.page-hero__title {
+  font-size: clamp(1.8rem, 7vw, 2.4rem);
+}
+
+/* ── SM — 480px ─────────────────────────────────────────────────── */
+
+@media (min-width: 480px) {
+
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+/* ── MD — 640px ─────────────────────────────────────────────────── */
+
+@media (min-width: 640px) {
+
+  .services-featured {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Cennik: tabela widoczna, karty ukryte */
+  .pricing-table {
+    display: table;
+  }
+
+  .pricing-card {
+    display: none;
+  }
+
+  .values-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .footer__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Sekcja header — więcej marginesu */
+  .section-header {
+    margin-bottom: clamp(var(--space-10), 6vw, var(--space-16));
+  }
+
+}
+
+/* ── LG — 900px ─────────────────────────────────────────────────── */
+
+@media (min-width: 900px) {
+
+  /* Nawigacja desktopowa */
+  .nav__links {
+    display: flex;
+  }
+
+  .nav__cta {
+    display: inline-flex;
+  }
+
+  .nav__hamburger {
+    display: none;
+  }
+
+  /* Floating CTA — ukryte na desktop (tel. widoczny w nav) */
+  .floating-cta {
+    display: none;
+  }
+
+  /* Siatki */
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .about-layout {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact-layout {
+    grid-template-columns: 1fr 1.3fr;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .footer__grid {
+    grid-template-columns: 1.6fr 1fr 1fr;
+  }
+
+  /* Value card — poziomy układ na desktopie */
+  .value-card {
+    border-top:     none;
+    border-left:    1px solid var(--color-border);
+    padding:        0 var(--space-8);
+  }
+
+  .value-card:first-child {
+    border-left: none;
+    padding-left: 0;
+  }
+
+  .values-grid {
+    align-items: start;
+  }
+
+}
+
+/* ── XL — 1100px ────────────────────────────────────────────────── */
+
+@media (min-width: 1100px) {
+
+  /* Hero content — max-width */
+  .hero__content {
+    max-width: 700px;
+  }
+
+  /* Dekoracje hero — większe na xl */
+  .hero__deco--circle-lg {
+    width:  580px;
+    height: 580px;
+  }
+
+  /* Kontener — pełna szerokość padding */
+  .container {
+    padding-inline: var(--container-px);
+  }
+
+  /* Typography fine-tuning */
+  .section-header__title {
+    font-size: var(--text-3xl);
+  }
+
+  .page-hero__title {
+    font-size: 3.8rem;
+  }
+
+  /* FAQ — przyzwoita szerokość na xl */
+  .faq-list {
+    max-width: 800px;
+  }
+
+  /* Map — wyżej na xl */
+  .map-wrap {
+    height: 420px;
+  }
+
+}
+
+/* ── PRINT ──────────────────────────────────────────────────────── */
+
+@media print {
+
+  /* Ukryj elementy niedrukowane */
+  .nav,
+  .nav__mobile,
+  .floating-cta,
+  .footer,
+  .hero__values,
+  .hero__actions,
+  .cta-block,
+  .map-wrap {
+    display: none !important;
+  }
+
+  body {
+    font-size:  12pt;
+    color:      #000;
+    background: #fff;
+  }
+
+  .hero {
+    min-height: auto;
+    padding:    2cm 0;
+  }
+
+  .hero__bg,
+  .hero__overlay {
+    display: none;
+  }
+
+  .hero__title,
+  .hero__subtitle,
+  .hero__label {
+    color: #000;
+  }
+
+  a {
+    color:           #000;
+    text-decoration: underline;
+  }
+
+  .section {
+    padding-block: 1cm;
+  }
+
+  .service-card,
+  .testimonial-card {
+    box-shadow:  none;
+    border-color: #ccc;
+    break-inside: avoid;
+  }
+
+  .pricing-table {
+    display: table !important;
+  }
+
+  .pricing-card {
+    display: none !important;
+  }
+
+  h1, h2, h3 {
+    break-after: avoid;
+  }
+
+}

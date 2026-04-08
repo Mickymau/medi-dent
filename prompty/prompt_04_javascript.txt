@@ -1,0 +1,119 @@
+================================================================
+MEDI-DENT · PROMPT 4 z 7
+js/main.js + js/animations.js
+================================================================
+
+Kontynuujemy budowę strony Medi-Dent. Masz już zapisane wszystkie pliki CSS:
+- C:\Users\Michał\Desktop\strona internetowa medi dent\css\tokens.css
+- C:\Users\Michał\Desktop\strona internetowa medi dent\css\base.css
+- C:\Users\Michał\Desktop\strona internetowa medi dent\css\layout.css
+- C:\Users\Michał\Desktop\strona internetowa medi dent\css\components.css
+- C:\Users\Michał\Desktop\strona internetowa medi dent\css\animations.css
+- C:\Users\Michał\Desktop\strona internetowa medi dent\css\responsive.css
+
+FOLDER PROJEKTU:
+C:\Users\Michał\Desktop\strona internetowa medi dent\
+
+ZADANIE W TYM PROMPCIE:
+Napisz i zapisz na dysk dwa pliki:
+1. C:\Users\Michał\Desktop\strona internetowa medi dent\js\main.js
+2. C:\Users\Michał\Desktop\strona internetowa medi dent\js\animations.js
+
+════════════════════════════════════════
+js/main.js
+════════════════════════════════════════
+
+'use strict'; — cały plik w tym trybie.
+Modułowa struktura — każda funkcja w osobnym IIFE lub bloku.
+
+MODUŁ 1: initHeader()
+- .nav dostaje klasę .is-scrolled gdy window.scrollY > 40.
+- window.addEventListener('scroll', update, { passive: true }).
+- Wywołaj update() również przy załadowaniu strony (odświeżenie w połowie).
+- Na podstronach nav ma is-scrolled ustawione w HTML od razu — nie ruszaj.
+
+MODUŁ 2: initMobileMenu()
+- .nav__hamburger toggle klasy .is-open na sobie i .nav__mobile.
+- Gdy menu otwarte: document.body.style.overflow = 'hidden'.
+- Gdy zamknięte: document.body.style.overflow = ''.
+- Zamknij menu przy: klik linku wewnątrz menu, klawisz Escape.
+- Aktualizuj aria-expanded na .nav__hamburger ('true'/'false').
+- Guard: if (!hamburger || !mobileMenu) return.
+
+MODUŁ 3: initActiveLink()
+- Pobierz location.pathname, wyciągnij ostatni segment (split('/').pop()).
+- Wyróżnij klasą is-active odpowiedni .nav__link i .nav__mobile-link.
+- Obsłuż przypadek '' i 'index.html' jako stronę główną.
+
+MODUŁ 4: initLazyImages()
+- IntersectionObserver dla img[loading="lazy"].
+- rootMargin: '300px 0px' (ładuj z wyprzedzeniem).
+- Po załadowaniu: img.addEventListener('load', () => img.classList.add('is-loaded')).
+- img.complete → dodaj is-loaded od razu bez czekania.
+- Fallback bez IO: dodaj is-loaded od razu wszystkim.
+- window.addEventListener('lazyRefresh', ...) — ponowna obserwacja po dynamic insert.
+- Guard: oddzielna obsługa hero bg img (nie lazy, fetchpriority high).
+
+MODUŁ 5: initFaq()
+- Znajdź wszystkie .faq-question.
+- Klik na pytanie: toggle klasy .is-open na odpowiadającym .faq-answer.
+- Jeden akordeon otwarty na raz — zamknij pozostałe .faq-answer.is-open.
+- Aktualizuj aria-expanded na każdym .faq-question.
+- CSS robi animację (max-height transition), JS tylko toggle klasy.
+- Guard: if (!questions.length) return.
+
+MODUŁ 6: initFloatingCta()
+- .floating-cta dostaje .is-visible gdy window.scrollY > 300.
+- Usuń .is-visible gdy scrollY <= 300.
+- window.addEventListener('scroll', update, { passive: true }).
+- Guard: if (!floatingCta) return.
+
+MODUŁ 7: initFooterYear()
+- const el = document.getElementById('footer-year').
+- if (el) el.textContent = new Date().getFullYear().
+
+Wywołaj wszystkie moduły po DOMContentLoaded lub na końcu pliku.
+
+════════════════════════════════════════
+js/animations.js
+════════════════════════════════════════
+
+'use strict';
+
+(function initReveal() {
+
+  const SELECTOR = '.reveal';
+  const ACTIVE_CLASS = 'is-visible';
+
+  /* Fallback — przeglądarki bez IntersectionObserver */
+  if (!('IntersectionObserver' in window)) {
+    document.querySelectorAll(SELECTOR).forEach(el =>
+      el.classList.add(ACTIVE_CLASS));
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add(ACTIVE_CLASS);
+        observer.unobserve(entry.target); /* obserwuj tylko raz */
+      });
+    },
+    {
+      threshold: 0.08,
+      rootMargin: '0px 0px -40px 0px'
+    }
+  );
+
+  function observeAll() {
+    document.querySelectorAll(`${SELECTOR}:not(.${ACTIVE_CLASS})`)
+      .forEach(el => observer.observe(el));
+  }
+
+  observeAll();
+
+  /* Odświeżenie po dynamicznym wstrzyknięciu elementów do DOM */
+  window.addEventListener('revealRefresh', observeAll);
+
+})();

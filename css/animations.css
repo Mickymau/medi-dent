@@ -1,0 +1,216 @@
+/* ================================================================
+   MEDI-DENT · animations.css
+   Reveal przy scrollu, hero wejście, przejścia stron, utilities
+   ================================================================ */
+
+/* ── REVEAL PRZY SCROLLU ────────────────────────────────────────── */
+
+/* Klasy dodawane przez IntersectionObserver w JS */
+
+.reveal {
+  opacity:    0;
+  transform:  translateY(22px);
+  transition: opacity   0.80s var(--ease-out),
+              transform 0.80s var(--ease-out);
+}
+
+.reveal.is-visible {
+  opacity:   1;
+  transform: translateY(0);
+}
+
+/* Warianty kierunku */
+
+.reveal-left {
+  opacity:   0;
+  transform: translateX(-18px);
+  transition: opacity   0.80s var(--ease-out),
+              transform 0.80s var(--ease-out);
+}
+
+.reveal-left.is-visible {
+  opacity:   1;
+  transform: translateX(0);
+}
+
+.reveal-scale {
+  opacity:   0;
+  transform: scale(0.96);
+  transition: opacity   0.80s var(--ease-out),
+              transform 0.80s var(--ease-out);
+}
+
+.reveal-scale.is-visible {
+  opacity:   1;
+  transform: scale(1);
+}
+
+/* Opóźnienia staggered */
+
+.reveal-delay-1 { transition-delay: 0.10s; }
+.reveal-delay-2 { transition-delay: 0.20s; }
+.reveal-delay-3 { transition-delay: 0.32s; }
+.reveal-delay-4 { transition-delay: 0.45s; }
+.reveal-delay-5 { transition-delay: 0.58s; }
+
+/* ── HERO — KEYFRAMES ───────────────────────────────────────────── */
+
+@keyframes hero-fade-up {
+  from {
+    opacity:   0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity:   1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Staggered wejście elementów hero (bez JS) */
+
+.hero__label {
+  animation: hero-fade-up 0.9s var(--ease-out) 0.10s both;
+}
+
+.hero__title {
+  animation: hero-fade-up 0.9s var(--ease-out) 0.25s both;
+}
+
+.hero__subtitle {
+  animation: hero-fade-up 0.9s var(--ease-out) 0.42s both;
+}
+
+.hero__actions {
+  animation: hero-fade-up 0.9s var(--ease-out) 0.58s both;
+}
+
+.hero__values {
+  animation: hero-fade-up 0.9s var(--ease-out) 0.72s both;
+}
+
+/* ── PAGE TRANSITION ────────────────────────────────────────────── */
+
+@keyframes page-in {
+  from {
+    opacity:   0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity:   1;
+    transform: translateY(0);
+  }
+}
+
+main {
+  animation: page-in 0.45s var(--ease-out) 0.05s both;
+}
+
+/* ── LAZY IMAGES ────────────────────────────────────────────────── */
+
+img[loading="lazy"] {
+  opacity:    0;
+  transition: opacity 0.55s var(--ease-out);
+}
+
+img[loading="lazy"].is-loaded {
+  opacity: 1;
+}
+
+/* ── HOVER UTILITIES ────────────────────────────────────────────── */
+
+/* Podkreślenie slide */
+.hover-underline {
+  position: relative;
+}
+
+.hover-underline::after {
+  content:    '';
+  position:   absolute;
+  bottom:     -2px;
+  left:       0;
+  width:      0;
+  height:     1px;
+  background: currentColor;
+  transition: width 0.35s var(--ease-out);
+}
+
+.hover-underline:hover::after {
+  width: 100%;
+}
+
+/* Zoom obrazka */
+.hover-zoom {
+  overflow: hidden;
+}
+
+.hover-zoom img {
+  transition: transform 0.60s var(--ease-out);
+}
+
+.hover-zoom:hover img {
+  transform: scale(1.04);
+}
+
+/* Lift karty */
+.hover-lift {
+  transition: transform 0.35s var(--ease-out),
+              box-shadow 0.35s var(--ease-out);
+}
+
+.hover-lift:hover {
+  transform:  translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ── PREFERS-REDUCED-MOTION ─────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration:   0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration:  0.01ms !important;
+    scroll-behavior:      auto !important;
+  }
+
+  .reveal,
+  .reveal-left,
+  .reveal-scale {
+    opacity:   1;
+    transform: none;
+    transition: none;
+  }
+
+  .reveal.is-visible,
+  .reveal-left.is-visible,
+  .reveal-scale.is-visible {
+    opacity:   1;
+    transform: none;
+  }
+
+  main {
+    animation: none;
+  }
+
+  .hero__label,
+  .hero__title,
+  .hero__subtitle,
+  .hero__actions,
+  .hero__values {
+    animation: none;
+    opacity:   1;
+    transform: none;
+  }
+
+  img[loading="lazy"] {
+    opacity:    1;
+    transition: none;
+  }
+}
