@@ -360,19 +360,6 @@
   padding-bottom: var(--space-4);
 }
 
-/* Tytuł sekcji z zaokrąglonym tłem (grupy 1 i 2) */
-.pricing-section__title--pill {
-  display:       inline-block;
-  background:    var(--color-navy-06);
-  color:         var(--color-navy);
-  padding:       0.30rem 1rem;
-  border-radius: 999px;
-  font-size:     var(--text-base);
-  font-weight:   500;
-  letter-spacing: 0.03em;
-  margin-bottom: var(--space-6);
-}
-
 /* ── OPINIE ─────────────────────────────────────────────────────── */
 
 .testimonial-card {
