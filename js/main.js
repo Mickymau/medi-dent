@@ -30,6 +30,7 @@ function initHeader() {
 /* ── MODUŁ 2: initMobileMenu ────────────────────────────────────── */
 
 function initMobileMenu() {
+  var nav        = document.querySelector('.nav');
   var hamburger  = document.querySelector('.nav__hamburger');
   var mobileMenu = document.querySelector('.nav__mobile');
 
@@ -38,6 +39,7 @@ function initMobileMenu() {
   function openMenu() {
     hamburger.classList.add('is-open');
     mobileMenu.classList.add('is-open');
+    if (nav) nav.classList.add('is-open');
     document.body.style.overflow = 'hidden';
     hamburger.setAttribute('aria-expanded', 'true');
   }
@@ -45,6 +47,7 @@ function initMobileMenu() {
   function closeMenu() {
     hamburger.classList.remove('is-open');
     mobileMenu.classList.remove('is-open');
+    if (nav) nav.classList.remove('is-open');
     document.body.style.overflow = '';
     hamburger.setAttribute('aria-expanded', 'false');
   }
