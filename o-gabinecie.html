@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>O Gabinecie — Medi-Dent Białystok | lek. stom. Irena Olszańska</title>
-  <meta name="description" content="Poznaj gabinet stomatologiczny Medi-Dent i lek. stom. Irenę Olszańską. Prywatny gabinet w Białymstoku — wieloletnie doświadczenie, indywidualne podejście." />
+  <title>O Gabinecie — Medi-Dent Białystok | Zespół lekarzy dentystów</title>
+  <meta name="description" content="Poznaj gabinet stomatologiczny Medi-Dent i nasz zespół lekarzy dentystów ze specjalizacją z endodoncji. Prywatna placówka w Białymstoku — wieloletnie doświadczenie, indywidualne podejście." />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
   <meta name="theme-color" content="#1B2B4B" />
   <link rel="canonical" href="https://medi-dent.pl/o-gabinecie.html" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="pl_PL" />
   <meta property="og:title" content="O Gabinecie — Medi-Dent Białystok" />
-  <meta property="og:description" content="Poznaj gabinet stomatologiczny Medi-Dent i lek. stom. Irenę Olszańską. Prywatny gabinet w Białymstoku." />
+  <meta property="og:description" content="Poznaj gabinet stomatologiczny Medi-Dent i nasz zespół. Prywatna placówka stomatologiczna w Białymstoku — specjaliści z endodoncji i stomatologii zachowawczej." />
   <meta property="og:image" content="https://medi-dent.pl/assets/og-image.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,12 +22,90 @@
   <link rel="stylesheet" href="css/components.css" />
   <link rel="stylesheet" href="css/animations.css" />
   <link rel="stylesheet" href="css/responsive.css" />
+  <style>
+    /* ── Sekcja zespołu — kafelki lekarzy (wariant A: pionowy portret) ── */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: var(--space-6);
+      margin-top: var(--space-10);
+    }
+    .team-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
+    }
+    .team-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(27, 43, 75, 0.10);
+    }
+    .team-card__photo {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      background: var(--color-bg-alt, #f3f4f6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .team-card__photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .team-card__photo-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-3);
+      color: var(--color-text-muted);
+    }
+    .team-card__photo-placeholder svg {
+      width: 48px;
+      height: 48px;
+      opacity: 0.30;
+      stroke: var(--color-navy);
+    }
+    .team-card__photo-placeholder span {
+      font-size: var(--text-xs);
+      opacity: 0.45;
+      letter-spacing: 0.04em;
+    }
+    .team-card__body {
+      padding: var(--space-4) var(--space-4) var(--space-5);
+    }
+    .team-card__name {
+      font-family: var(--font-display);
+      font-size: var(--text-base);
+      font-weight: 500;
+      color: var(--color-navy);
+      margin: 0 0 var(--space-1);
+      line-height: 1.3;
+    }
+    .team-card__role {
+      font-size: var(--text-xs);
+      color: var(--color-gold);
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin: 0 0 var(--space-3);
+    }
+    .team-card__desc {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      line-height: var(--leading-loose);
+      margin: 0;
+    }
+  </style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Dentist",
     "name": "Gabinet Stomatologiczny Medi-Dent",
-    "description": "Prywatny gabinet stomatologiczny w Białymstoku",
+    "description": "Prywatna placówka stomatologiczna w Białymstoku",
     "url": "https://medi-dent.pl",
     "telephone": "857446593",
     "address": {
@@ -83,7 +161,7 @@
         <span class="page-hero__label label">O nas</span>
         <h1 class="page-hero__title">Poznaj nasz gabinet</h1>
         <p class="page-hero__subtitle">
-          Prywatny gabinet stomatologiczny z wieloletnim doświadczeniem
+          Prywatna placówka stomatologiczna z wieloletnim doświadczeniem
           w sercu Białegostoku.
         </p>
       </div>
@@ -96,13 +174,13 @@
       <div class="container">
         <div class="about-layout">
 
-          <!-- Lewa: zdjęcie -->
+          <!-- Lewa: zdjęcie wnętrza -->
           <div class="reveal">
             <div class="hover-zoom"
                  style="border-radius: var(--radius-md); overflow: hidden;">
               <img
-                src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=800"
-                alt="lek. stom. Irena Olszańska — Gabinet Medi-Dent Białystok"
+                src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800"
+                alt="Wnętrze Gabinetu Stomatologicznego Medi-Dent w Białymstoku"
                 loading="lazy"
                 width="800"
                 height="1000"
@@ -111,13 +189,13 @@
             </div>
             <p style="font-size: var(--text-sm); color: var(--color-text-muted);
                       margin-top: var(--space-3); font-style: italic;">
-              lek. stom. Irena Olszańska
+              Gabinet Medi-Dent, Al. Piłsudskiego 15/16, Białystok
             </p>
           </div>
 
           <!-- Prawa: tekst -->
           <div>
-            <span class="label reveal">Lek. stom. Irena Olszańska</span>
+            <span class="label reveal">Nasz gabinet</span>
             <span class="divider reveal reveal-delay-1" aria-hidden="true"></span>
             <h2 class="section-header__title reveal reveal-delay-1"
                 id="about-main-heading">
@@ -127,11 +205,12 @@
             <p class="reveal reveal-delay-2"
                style="color: var(--color-text-muted); line-height: var(--leading-loose);
                       margin-top: var(--space-6); font-size: var(--text-base);">
-              lek.&nbsp;stom. Irena Olszańska od lat prowadzi w Białymstoku gabinet
-              oparty na rzetelnej, spokojnej pracy z pacjentem. Stałe kształcenie
-              i śledzenie postępów w stomatologii pozwalają łączyć sprawdzone metody
-              z nowoczesnymi rozwiązaniami&nbsp;&mdash; zawsze dobieranymi do potrzeb
-              konkretnej osoby.
+              Gabinet Medi-Dent działa w Białymstoku od lat, budowany na rzetelnej,
+              spokojnej pracy z pacjentem. Tworzą go lekarze dentyści ze specjalizacją
+              ze stomatologii zachowawczej z endodoncją&nbsp;&mdash; dziedziny wymagającej
+              szczególnej precyzji i wiedzy klinicznej. Każdy z lekarzy stale się kształci,
+              łącząc sprawdzone metody z nowoczesnymi rozwiązaniami&nbsp;&mdash; zawsze
+              dobieranymi do potrzeb konkretnej osoby.
             </p>
 
             <p class="reveal reveal-delay-2"
@@ -149,9 +228,8 @@
                       margin-top: var(--space-4); font-size: var(--text-base);">
               Do dyspozycji pacjentów oddajemy nowoczesny sprzęt diagnostyczny
               i zabiegowy. Skuteczne znieczulenie sprawia, że nawet bardziej
-              rozbudowane zabiegi &mdash; jak leczenie kanałowe &mdash; przebiegają
-              komfortowo i bez bólu. Staramy się, żebyś wychodził z gabinetu
-              spokojniej, niż wszedł.
+              rozbudowane zabiegi&nbsp;&mdash; jak leczenie kanałowe&nbsp;&mdash; przebiegają
+              komfortowo i bez bólu.
             </p>
 
             <p class="reveal reveal-delay-3"
@@ -159,14 +237,14 @@
                       margin-top: var(--space-4); font-size: var(--text-base);">
               Przyjmujemy dorosłych, dzieci oraz pacjentów z silnym lękiem
               przed dentystą. Atmosfera gabinetu jest spokojna i pozbawiona
-              klinicznej surowości &mdash; dbamy o to, żeby wizyta była
+              klinicznej surowości&nbsp;&mdash; dbamy o to, żeby wizyta była
               doświadczeniem możliwie normalnym, a nie stresującym.
             </p>
 
             <p class="reveal reveal-delay-4"
                style="color: var(--color-text-muted); line-height: var(--leading-loose);
                       margin-top: var(--space-4); font-size: var(--text-base);">
-              Jako gabinet prywatny możemy poświęcić każdemu pacjentowi tyle czasu,
+              Jako placówka prywatna możemy poświęcić każdemu pacjentowi tyle czasu,
               ile potrzebuje. Nie ma tu anonimowości ani kolejek narzuconych z góry
               &mdash; jesteś tu jako konkretna osoba, nie numer w systemie.
             </p>
@@ -184,9 +262,128 @@
 
 
     <!-- ══════════════════════════════════════════════════════════
+         SEKCJA ZESPOŁU
+    ══════════════════════════════════════════════════════════ -->
+    <section class="section section--alt" aria-labelledby="team-heading">
+      <div class="container">
+
+        <div class="section-header">
+          <span class="label reveal">Specjaliści</span>
+          <span class="divider reveal reveal-delay-1" aria-hidden="true"></span>
+          <h2 class="section-header__title reveal reveal-delay-2" id="team-heading">
+            Nasz zespół
+          </h2>
+          <p class="section-header__subtitle reveal reveal-delay-3">
+            Lekarze dentyści ze specjalizacją ze stomatologii zachowawczej
+            z endodoncją.
+          </p>
+        </div>
+
+        <div class="team-grid">
+
+          <!-- Irena Olszańska -->
+          <article class="team-card reveal">
+            <div class="team-card__photo">
+              <div class="team-card__photo-placeholder" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                     stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                  <circle cx="12" cy="7" r="4"/>
+                </svg>
+                <span>zdjęcie</span>
+              </div>
+            </div>
+            <div class="team-card__body">
+              <p class="team-card__name">Irena Olszańska</p>
+              <p class="team-card__role">Lek. dent.</p>
+              <p class="team-card__desc">Specjalista ze stomatologii zachowawczej z endodoncją.</p>
+            </div>
+          </article>
+
+          <!-- Kamil Olszański -->
+          <article class="team-card reveal reveal-delay-1">
+            <div class="team-card__photo">
+              <img
+                src="assets/team/foto-olszanski-kamil.jpg"
+                alt="lek. dent. Kamil Olszański — Gabinet Medi-Dent Białystok"
+                loading="lazy"
+                width="600"
+                height="800"
+              />
+            </div>
+            <div class="team-card__body">
+              <p class="team-card__name">Kamil Olszański</p>
+              <p class="team-card__role">Lek. dent.</p>
+              <p class="team-card__desc">Specjalista ze stomatologii zachowawczej z endodoncją.</p>
+            </div>
+          </article>
+
+          <!-- Karolina Pachucka -->
+          <article class="team-card reveal reveal-delay-2">
+            <div class="team-card__photo">
+              <div class="team-card__photo-placeholder" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                     stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                  <circle cx="12" cy="7" r="4"/>
+                </svg>
+                <span>zdjęcie</span>
+              </div>
+            </div>
+            <div class="team-card__body">
+              <p class="team-card__name">Karolina Pachucka</p>
+              <p class="team-card__role">Lek. dent.</p>
+              <p class="team-card__desc">Specjalista ze stomatologii zachowawczej z endodoncją.</p>
+            </div>
+          </article>
+
+          <!-- Michał Gołąb -->
+          <article class="team-card reveal reveal-delay-3">
+            <div class="team-card__photo">
+              <div class="team-card__photo-placeholder" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                     stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                  <circle cx="12" cy="7" r="4"/>
+                </svg>
+                <span>zdjęcie</span>
+              </div>
+            </div>
+            <div class="team-card__body">
+              <p class="team-card__name">Michał Gołąb</p>
+              <p class="team-card__role">Lek. dent.</p>
+              <p class="team-card__desc">Specjalista ze stomatologii zachowawczej z endodoncją.</p>
+            </div>
+          </article>
+
+          <!-- Karolina Miłkowska -->
+          <article class="team-card reveal reveal-delay-4">
+            <div class="team-card__photo">
+              <div class="team-card__photo-placeholder" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                     stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                  <circle cx="12" cy="7" r="4"/>
+                </svg>
+                <span>zdjęcie</span>
+              </div>
+            </div>
+            <div class="team-card__body">
+              <p class="team-card__name">Karolina Miłkowska</p>
+              <p class="team-card__role">Lek. dent.</p>
+              <p class="team-card__desc">W trakcie specjalizacji ze stomatologii zachowawczej z endodoncją.</p>
+            </div>
+          </article>
+
+        </div><!-- /.team-grid -->
+      </div><!-- /.container -->
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════════
          SEKCJA WARTOŚCI
     ══════════════════════════════════════════════════════════ -->
-    <section class="section section--alt" aria-labelledby="values-heading">
+    <section class="section" aria-labelledby="values-heading">
       <div class="container">
 
         <div class="section-header">
@@ -283,8 +480,8 @@
         <div>
           <p class="footer__brand-name">Medi-Dent</p>
           <p class="footer__brand-tagline">
-            Prywatny gabinet stomatologiczny<br>
-            lek. stom. Ireny Olszańskiej w Białymstoku.
+            Prywatna placówka stomatologiczna<br>
+            w Białymstoku.
           </p>
         </div>
         <div>
@@ -316,7 +513,7 @@
           &copy; <span id="footer-year"></span>
           Gabinet Stomatologiczny Medi-Dent. Wszelkie prawa zastrzeżone.
         </p>
-        <p class="footer__copy">lek. stom. Irena Olszańska &middot; Białystok</p>
+        <p class="footer__copy">Al. Piłsudskiego 15/16 &middot; Białystok</p>
       </div>
     </div>
   </footer>
