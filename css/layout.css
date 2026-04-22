@@ -40,6 +40,7 @@
   STANY BELKI — wszystkie strony:
   .nav (bez is-scrolled) → przezroczyste tło, ciemne teksty
   .nav.is-scrolled       → granatowe tło, białe teksty
+  .nav.is-open           → jasne tło (bg-warm), ciemne teksty
   JS dodaje is-scrolled po przewinięciu > 40px na każdej stronie.
 */
 
@@ -61,6 +62,11 @@
 .nav.is-scrolled {
   background: var(--color-navy);
   box-shadow: none;
+}
+
+/* Menu otwarte — jasne tło niezależnie od is-scrolled */
+.nav.is-open {
+  background: var(--color-bg-warm);
 }
 
 .nav__inner {
@@ -227,7 +233,7 @@
   background: var(--color-navy);
 }
 
-/* Gdy menu otwarte na scrolled belce — wyższa specyficzność (0,3,1)
+/* Gdy menu otwarte na scrolled belce — wyższa specyficzność (0,4,1)
    gwarantuje navy niezależnie od is-scrolled */
 .nav.is-scrolled.is-open .nav__hamburger span {
   background: var(--color-navy);
