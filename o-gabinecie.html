@@ -23,7 +23,6 @@
   <link rel="stylesheet" href="css/animations.css" />
   <link rel="stylesheet" href="css/responsive.css" />
   <style>
-    /* ── Sekcja zespołu — kafelki lekarzy (wariant A: pionowy portret) ── */
     .team-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -123,7 +122,7 @@
 
   <a href="#main-content" class="skip-link">Przejdź do treści</a>
 
-  <header class="nav nav--subpage is-scrolled" role="banner">
+  <header class="nav" role="banner">
     <div class="nav__inner">
       <a href="index.html" class="nav__logo" aria-label="Medi-Dent — strona główna">
         <span class="nav__logo-name">Medi-Dent</span>
@@ -155,7 +154,6 @@
 
   <main id="main-content">
 
-    <!-- PAGE HERO -->
     <div class="page-hero section--warm">
       <div class="container">
         <span class="page-hero__label label">O nas</span>
@@ -167,14 +165,10 @@
       </div>
     </div>
 
-    <!-- ══════════════════════════════════════════════════════════
-         SEKCJA GŁÓWNA
-    ══════════════════════════════════════════════════════════ -->
     <section class="section" aria-labelledby="about-main-heading">
       <div class="container">
         <div class="about-layout">
 
-          <!-- Lewa: zdjęcie wnętrza -->
           <div class="reveal">
             <div class="hover-zoom"
                  style="border-radius: var(--radius-md); overflow: hidden;">
@@ -193,7 +187,6 @@
             </p>
           </div>
 
-          <!-- Prawa: tekst -->
           <div>
             <span class="label reveal">Nasz gabinet</span>
             <span class="divider reveal reveal-delay-1" aria-hidden="true"></span>
@@ -201,7 +194,6 @@
                 id="about-main-heading">
               Gabinet, w którym czujesz się bezpiecznie
             </h2>
-
             <p class="reveal reveal-delay-2"
                style="color: var(--color-text-muted); line-height: var(--leading-loose);
                       margin-top: var(--space-6); font-size: var(--text-base);">
@@ -212,7 +204,6 @@
               łącząc sprawdzone metody z nowoczesnymi rozwiązaniami&nbsp;&mdash; zawsze
               dobieranymi do potrzeb konkretnej osoby.
             </p>
-
             <p class="reveal reveal-delay-2"
                style="color: var(--color-text-muted); line-height: var(--leading-loose);
                       margin-top: var(--space-4); font-size: var(--text-base);">
@@ -222,7 +213,6 @@
               czego się spodziewać i jakie są dostępne opcje. Decyzja zawsze należy
               do Ciebie.
             </p>
-
             <p class="reveal reveal-delay-3"
                style="color: var(--color-text-muted); line-height: var(--leading-loose);
                       margin-top: var(--space-4); font-size: var(--text-base);">
@@ -231,7 +221,6 @@
               rozbudowane zabiegi&nbsp;&mdash; jak leczenie kanałowe&nbsp;&mdash; przebiegają
               komfortowo i bez bólu.
             </p>
-
             <p class="reveal reveal-delay-3"
                style="color: var(--color-text-muted); line-height: var(--leading-loose);
                       margin-top: var(--space-4); font-size: var(--text-base);">
@@ -240,7 +229,6 @@
               klinicznej surowości&nbsp;&mdash; dbamy o to, żeby wizyta była
               doświadczeniem możliwie normalnym, a nie stresującym.
             </p>
-
             <p class="reveal reveal-delay-4"
                style="color: var(--color-text-muted); line-height: var(--leading-loose);
                       margin-top: var(--space-4); font-size: var(--text-base);">
@@ -248,7 +236,6 @@
               ile potrzebuje. Nie ma tu anonimowości ani kolejek narzuconych z góry
               &mdash; jesteś tu jako konkretna osoba, nie numer w systemie.
             </p>
-
             <div class="reveal reveal-delay-4" style="margin-top: var(--space-8);">
               <a href="kontakt.html" class="btn btn--ghost">
                 Jak do nas trafić
@@ -256,17 +243,12 @@
             </div>
           </div>
 
-        </div><!-- /.about-layout -->
-      </div><!-- /.container -->
+        </div>
+      </div>
     </section>
 
-
-    <!-- ══════════════════════════════════════════════════════════
-         SEKCJA ZESPOŁU
-    ══════════════════════════════════════════════════════════ -->
     <section class="section section--alt" aria-labelledby="team-heading">
       <div class="container">
-
         <div class="section-header">
           <span class="label reveal">Specjaliści</span>
           <span class="divider reveal reveal-delay-1" aria-hidden="true"></span>
@@ -281,7 +263,6 @@
 
         <div class="team-grid">
 
-          <!-- Irena Olszańska -->
           <article class="team-card reveal">
             <div class="team-card__photo">
               <div class="team-card__photo-placeholder" aria-hidden="true">
@@ -300,7 +281,6 @@
             </div>
           </article>
 
-          <!-- Kamil Olszański -->
           <article class="team-card reveal reveal-delay-1">
             <div class="team-card__photo">
               <img
@@ -318,7 +298,6 @@
             </div>
           </article>
 
-          <!-- Karolina Pachucka -->
           <article class="team-card reveal reveal-delay-2">
             <div class="team-card__photo">
               <div class="team-card__photo-placeholder" aria-hidden="true">
@@ -337,7 +316,6 @@
             </div>
           </article>
 
-          <!-- Michał Gołąb -->
           <article class="team-card reveal reveal-delay-3">
             <div class="team-card__photo">
               <div class="team-card__photo-placeholder" aria-hidden="true">
@@ -356,7 +334,6 @@
             </div>
           </article>
 
-          <!-- Karolina Miłkowska -->
           <article class="team-card reveal reveal-delay-4">
             <div class="team-card__photo">
               <div class="team-card__photo-placeholder" aria-hidden="true">
@@ -375,28 +352,20 @@
             </div>
           </article>
 
-        </div><!-- /.team-grid -->
-      </div><!-- /.container -->
+        </div>
+      </div>
     </section>
 
-
-    <!-- ══════════════════════════════════════════════════════════
-         SEKCJA WARTOŚCI
-    ══════════════════════════════════════════════════════════ -->
     <section class="section" aria-labelledby="values-heading">
       <div class="container">
-
         <div class="section-header">
           <span class="label reveal">Nasze podejście</span>
           <span class="divider reveal reveal-delay-1" aria-hidden="true"></span>
-          <h2 class="section-header__title reveal reveal-delay-2"
-              id="values-heading">
+          <h2 class="section-header__title reveal reveal-delay-2" id="values-heading">
             Dlaczego warto nam zaufać
           </h2>
         </div>
-
         <div class="values-grid">
-
           <div class="value-card reveal reveal-delay-1">
             <div class="value-card__icon-wrap" aria-hidden="true">
               <svg viewBox="0 0 32 32" fill="none" stroke="currentColor"
@@ -415,7 +384,6 @@
               skuteczne i bezpieczne.
             </p>
           </div>
-
           <div class="value-card reveal reveal-delay-2">
             <div class="value-card__icon-wrap" aria-hidden="true">
               <svg viewBox="0 0 32 32" fill="none" stroke="currentColor"
@@ -433,7 +401,6 @@
               bez bólu i dyskomfortu.
             </p>
           </div>
-
           <div class="value-card reveal reveal-delay-3">
             <div class="value-card__icon-wrap" aria-hidden="true">
               <svg viewBox="0 0 32 32" fill="none" stroke="currentColor"
@@ -448,15 +415,10 @@
               traktowany poważnie.
             </p>
           </div>
-
-        </div><!-- /.values-grid -->
-      </div><!-- /.container -->
+        </div>
+      </div>
     </section>
 
-
-    <!-- ══════════════════════════════════════════════════════════
-         CTA
-    ══════════════════════════════════════════════════════════ -->
     <section class="section--dark" aria-labelledby="cta-about-heading">
       <div class="cta-block">
         <h2 class="cta-block__title" id="cta-about-heading">
@@ -472,8 +434,6 @@
 
   </main>
 
-
-  <!-- STOPKA -->
   <footer class="footer" role="contentinfo">
     <div class="container">
       <div class="footer__grid">

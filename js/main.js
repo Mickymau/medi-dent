@@ -12,9 +12,6 @@ function initHeader() {
   var nav = document.querySelector('.nav');
   if (!nav) return;
 
-  /* Podstrony mają is-scrolled ustawione w HTML — nie nadpisuj */
-  if (nav.classList.contains('is-scrolled')) return;
-
   function updateHeader() {
     if (window.scrollY > 40) {
       nav.classList.add('is-scrolled');

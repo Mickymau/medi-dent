@@ -37,13 +37,10 @@
 /* ── NAWIGACJA ──────────────────────────────────────────────────── */
 
 /*
-  STANY BELKI — strona główna (index.html):
+  STANY BELKI — wszystkie strony:
   .nav (bez is-scrolled) → przezroczyste tło, ciemne teksty
   .nav.is-scrolled       → granatowe tło, białe teksty
-
-  PODSTRONY:
-  .nav.nav--subpage      → zawsze jasne tło + ciemne teksty,
-                           niezależnie od is-scrolled
+  JS dodaje is-scrolled po przewinięciu > 40px na każdej stronie.
 */
 
 .nav {
@@ -65,51 +62,6 @@
   background: var(--color-navy);
   box-shadow: none;
 }
-
-/* ── PODSTRONY: zawsze jasna belka ──────────────────────────────── */
-
-.nav.nav--subpage,
-.nav.nav--subpage.is-scrolled {
-  background:      rgba(254, 252, 250, 0.96);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  box-shadow:      var(--shadow-nav);
-}
-
-.nav.nav--subpage .nav__logo-name,
-.nav.nav--subpage.is-scrolled .nav__logo-name {
-  color: var(--color-navy);
-}
-
-.nav.nav--subpage .nav__logo-tagline,
-.nav.nav--subpage.is-scrolled .nav__logo-tagline {
-  color:   var(--color-navy);
-  opacity: 0.6;
-}
-
-.nav.nav--subpage .nav__link,
-.nav.nav--subpage.is-scrolled .nav__link {
-  color: var(--color-navy-80);
-}
-
-.nav.nav--subpage .nav__cta,
-.nav.nav--subpage.is-scrolled .nav__cta {
-  color:        var(--color-navy);
-  border-color: var(--color-navy);
-}
-
-.nav.nav--subpage .nav__cta:hover,
-.nav.nav--subpage.is-scrolled .nav__cta:hover {
-  background: var(--color-navy);
-  color:      var(--color-white);
-}
-
-.nav.nav--subpage .nav__hamburger span,
-.nav.nav--subpage.is-scrolled .nav__hamburger span {
-  background: var(--color-navy);
-}
-
-/* ── KONIEC PODSTRON ────────────────────────────────────────────── */
 
 .nav__inner {
   display:         flex;
@@ -272,6 +224,12 @@
 }
 
 .nav.is-open .nav__hamburger span {
+  background: var(--color-navy);
+}
+
+/* Gdy menu otwarte na scrolled belce — wyższa specyficzność (0,3,1)
+   gwarantuje navy niezależnie od is-scrolled */
+.nav.is-scrolled.is-open .nav__hamburger span {
   background: var(--color-navy);
 }
 
