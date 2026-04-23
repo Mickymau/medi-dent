@@ -13,20 +13,27 @@ Fokus usług: **estetyka stomatologiczna + endodoncja** — nie rozmywać na inn
 Ton: ciepły, rodzinny, budujący zaufanie. Bez korporacyjnego języka.
 Kontakt: wyłącznie telefon — bez formularza kontaktowego (decyzja klienta, nie zmieniać).
 
-Projekt aktualnie **zamrożony** — czeka na dane od klienta (telefon, adres, cennik).
-Bez tych danych nie ma sensu dalej rozwijać strony — byłoby to budowanie na placeholderach.
+Projekt aktywny — dane klienta zebrane i wgrane na stronę.
+
+---
+
+## Dane klienta (wgrane na stronę)
+
+| Co | Wartość |
+|---|---|
+| Telefon | 85 744 65 93 |
+| Adres | Al. Piłsudskiego 15/16, 15-444 Białystok |
+| Godziny | wt–śr 11:00–18:00, czw–sob 08:00–14:00, pon i nd nieczynne |
+| Cennik | pełny (badanie, zachowawcza, endodoncja, protetyka, higiena, chirurgia, RTG) |
 
 ---
 
 ## Status projektu (stan na kwiecień 2026)
 
-**Live:** `https://mickymau.github.io/medi-dent/index.html` — strona dostępna.
+**Live:** `https://mickymau.github.io/medi-dent/index.html` — strona dostępna z danymi.
 
-**Co blokuje:** brak danych kontaktowych (telefon, adres gabinetu) i cennika usług.
-Zebrane dane przekazać przed kolejną sesją — patrz OPEN-ITEMS.
-
-**Następny krok po odblokowaniu:** dopracować i przekształcić w case study
-dla portfolio Verami.Studio.
+**Co dalej:** zweryfikować treści, przekształcić w case study dla Verami.Studio.
+Patrz OPEN-ITEMS.md.
 
 ---
 
@@ -37,7 +44,8 @@ dla portfolio Verami.Studio.
 | GitHub | `Mickymau/medi-dent` |
 | Hosting | GitHub Pages |
 | URL | `https://mickymau.github.io/medi-dent/index.html` |
-| Folder lokalny | `C:\Users\Admin\Desktop\strona internetowa medi dent\` — **TBD: zweryfikować** |
+| Folder lokalny | `C:\\Users\\Michał\\Desktop\\PROJEKTY\\strona internetowa medi dent\\` |
+| Uwaga | folder `knowledge/` istnieje tylko w repo, nie lokalnie |
 | Dev lokalnie | VS Code Live Server |
 
 ---
