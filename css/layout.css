@@ -314,47 +314,30 @@
   position:    relative;
   display:     flex;
   align-items: center;
-  overflow:    hidden;
+  overflow:    clip;
 }
 
 .hero__bg {
   position:   absolute;
   inset:      0;
-  background: var(--color-bg);
+  background: var(--color-bg-warm);
 }
 
-/* Dekoracje geometryczne CSS */
+/* Ząb anatomiczny — dekoracja tła hero */
 
-.hero__deco {
-  position:       absolute;
-  pointer-events: none;
-  border-radius:  50%;
-}
-
-.hero__deco--circle-lg {
-  top:    -100px;
-  right:  -100px;
-  width:  500px;
-  height: 500px;
-  border: 1px solid var(--color-navy-12);
-}
-
-.hero__deco--circle-sm {
-  top:    60px;
-  right:  80px;
-  width:  280px;
-  height: 280px;
-  border: 1px solid var(--color-navy-06);
-}
-
-.hero__deco--line {
-  position:      absolute;
-  left:          0;
-  top:           50%;
-  width:         60px;
-  height:        1px;
-  background:    var(--color-navy-20);
-  border-radius: 0;
+.hero__tooth {
+  position:        absolute;
+  right:           -14%;
+  top:             50%;
+  transform:       translateY(-50%);
+  width:           55vw;
+  max-width:       860px;
+  height:          auto;
+  opacity:         0.48;
+  mix-blend-mode:  multiply;
+  pointer-events:  none;
+  user-select:     none;
+  z-index:         1;
 }
 
 .hero__overlay {
