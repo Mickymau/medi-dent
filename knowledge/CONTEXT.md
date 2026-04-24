@@ -45,10 +45,8 @@ dla portfolio Verami.Studio.
 ## Deploy flow
 
 ```powershell
-# PowerShell — komendy OSOBNO, nie łączyć &&
-git add .
-git commit -m "opis zmian"
-git push
+# PowerShell 
+git add . && git commit -m "opis zmian" && git push
 ```
 
 GitHub Pages serwuje z brancha `main`. Zmiany widoczne po ~1–2 minutach.
