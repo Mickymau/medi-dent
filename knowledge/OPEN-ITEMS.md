@@ -1,40 +1,32 @@
 # Medi-Dent — open items
 
 > Stan na kwiecień 2026.
-> Projekt jest zamrożony do czasu zebrania danych od klienta.
+> Dane od klienta zebrane i wgrane na stronę — projekt odblokowany.
 
 ---
 
-## 🔴 Blokujące — zebrać od klienta zanim cokolwiek robisz
+## 🔴 Blokujące — ZREALIZOWANE
 
-Bez tych danych dalszy development nie ma sensu — strona będzie oparta na placeholderach
-i tak zostanie na produkcji. Lepiej poczekać.
-
-- [ ] **Numer telefonu** — jedyny kanał kontaktu z gabinetem. Widoczny wszędzie.
-- [ ] **Adres gabinetu** — ulica, numer lokalu, Białystok.
-- [ ] **Godziny pracy** — dni tygodnia + godziny.
-- [ ] **Pełny cennik usług** — nazwy procedur + ceny. Przynajmniej orientacyjne.
-  Dotyczy szczególnie estetyki i endodoncji (fokus kliniki).
+- [x] **Numer telefonu** — 85 744 65 93
+- [x] **Adres gabinetu** — Al. Piłsudskiego 15/16, 15-444 Białystok
+- [x] **Godziny pracy** — wt–śr 11:00–18:00, czw–sob 08:00–14:00, pon i nd nieczynne
+- [x] **Cennik usług** — pełny cennik wgrany (badanie 200 zł, zachowawcza, endodoncja, protetyka, higiena, chirurgia, RTG)
 
 ---
 
-## 🟡 Ważne — po odblokowaniu
+## 🟡 Ważne — do zrobienia
 
-- [ ] **Dopracować stronę** — uzupełnić placeholdery, zweryfikować treści.
-- [ ] **Przekształcić w case study dla Verami.Studio** — opis projektu, efekty,
-  zrzuty ekranu przed/po. Medi-Dent to jeden z pierwszych klientów — warto pokazać.
-- [ ] **Zweryfikować ścieżkę lokalną** — folder lokalny do zweryfikowania
-  (może się różnić od domyślnego).
+- [ ] **Zweryfikować treści strony** — sprawdzić czy wszystkie placeholdery zastąpiono, czy ton jest zgodny z wytycznymi (ciepły, rodzinny, bez zakazanych słów).
+- [ ] **Przekształcić w case study dla Verami.Studio** — opis projektu, efekty, zrzuty ekranu przed/po.
+- [ ] **Folder knowledge/ tylko w repo** — nie ma go lokalnie. Ścieżka lokalna zweryfikowana: `C:\\Users\\Michał\\Desktop\\PROJEKTY\\strona internetowa medi dent\\`
 
 ---
 
 ## 🟢 Do zrobienia kiedy czas
 
-- [ ] **Google Business Profile** — założyć lub pomóc klientowi uzupełnić.
-  Dla lokalnej kliniki to priorytet SEO #1.
+- [ ] **Google Business Profile** — założyć lub pomóc klientowi uzupełnić. Priorytet SEO #1.
 - [ ] **Opinie pacjentów** — zebrać 3–5 opinii z imieniem i zgodą na publikację.
-- [ ] **Schema.org** — dodać `MedicalBusiness` lub `Dentist` z pełnymi danymi
-  (adres, telefon, godziny, specjalizacje). Kluczowe dla lokalnego SEO.
+- [ ] **Schema.org** — dodać `MedicalBusiness` lub `Dentist` z pełnymi danymi (adres, telefon, godziny, specjalizacje).
 
 ---
 
@@ -44,3 +36,5 @@ i tak zostanie na produkcji. Lepiej poczekać.
 - [x] Hosting na GitHub Pages — `https://mickymau.github.io/medi-dent/index.html`
 - [x] Struktura strony: strona główna + o gabinecie + usługi + kontakt + cennik
 - [x] System promptów do pracy (`prompty/` folder)
+- [x] Dane kontaktowe wgrane na stronę (telefon, adres, godziny)
+- [x] Pełny cennik usług wgrany na stronę
