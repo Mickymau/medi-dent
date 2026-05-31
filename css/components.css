@@ -785,3 +785,12 @@
   border: none;
   display: block;
 }
+
+/* ── PRICING NOTE ───────────────────────────────────────────────── */
+
+.pricing-section__note {
+  font-size:   var(--text-sm);
+  font-style:  italic;
+  margin-top:  calc(var(--space-2) * -1);
+  margin-bottom: var(--space-4);
+}
