@@ -28,11 +28,17 @@ Projekt aktywny — dane klienta zebrane i wgrane na stronę.
 
 ---
 
-## Status projektu (stan na kwiecień 2026)
+## Status projektu (stan na maj 2026)
 
-**Live:** `https://mickymau.github.io/medi-dent/index.html` — strona dostępna z danymi.
+**Live:** `https://medi-dent.bialystok.pl` — strona na własnej domenie z pełnymi danymi.
 
-**Co dalej:** zweryfikować treści, przekształcić w case study dla Verami.Studio.
+**Tracking:** GTM (GTM-WGWNVMGG) + GA4 (G-YYEGQGN32J) wdrożone i działające.
+Śledzenie kliknięć w telefon jako kluczowe zdarzenie GA4.
+
+**Marketing:** Kampania Google Ads Search na endodoncję — czeka na weryfikację konta Google Ads.
+Budżet 50 zł/dzień, cel: połączenia telefoniczne.
+
+**Co dalej:** monitorować kampanię po odblokowaniu, uzupełnić GBP, case study dla Verami.Studio.
 Patrz OPEN-ITEMS.md.
 
 ---
