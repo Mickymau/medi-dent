@@ -785,3 +785,113 @@
   border: none;
   display: block;
 }
+
+/* ── PHOTO CAROUSEL (scroll-snap, przewijanie palcem) ───────────── */
+
+.photo-carousel {
+  position: relative;
+}
+
+.photo-carousel__track {
+  display:              flex;
+  overflow-x:           auto;
+  scroll-snap-type:     x mandatory;
+  border-radius:        var(--radius-md);
+  scrollbar-width:      none;
+  -ms-overflow-style:   none;
+  scroll-behavior:      smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.photo-carousel__track::-webkit-scrollbar {
+  display: none;
+}
+
+.photo-carousel__slide {
+  flex:              0 0 100%;
+  scroll-snap-align: center;
+  scroll-snap-stop:  always;
+  overflow:          hidden;
+}
+
+.photo-carousel__slide img {
+  width:   100%;
+  height:  auto;
+  display: block;
+}
+
+.photo-carousel__dots {
+  display:         flex;
+  justify-content: center;
+  gap:             var(--space-2);
+  margin-top:      var(--space-4);
+}
+
+.photo-carousel__dot {
+  width:         8px;
+  height:        8px;
+  border-radius: 50%;
+  background:    var(--color-navy-20);
+  border:        none;
+  padding:       0;
+  cursor:        pointer;
+  transition:    background 0.25s var(--ease-out), transform 0.25s var(--ease-out);
+}
+
+.photo-carousel__dot:hover {
+  background: var(--color-navy-40);
+}
+
+.photo-carousel__dot.is-active {
+  background: var(--color-navy);
+  transform:  scale(1.2);
+}
+
+.photo-carousel__arrow {
+  position:        absolute;
+  top:             50%;
+  transform:       translateY(-50%);
+  width:           36px;
+  height:          36px;
+  border-radius:   50%;
+  border:          none;
+  background:      rgba(255, 255, 255, 0.85);
+  color:           var(--color-navy);
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  cursor:          pointer;
+  box-shadow:      var(--shadow-sm);
+  opacity:         0;
+  transition:      opacity 0.25s var(--ease-out), background 0.25s var(--ease-out);
+  z-index:         2;
+}
+
+.photo-carousel__arrow svg {
+  width:  18px;
+  height: 18px;
+  stroke: currentColor;
+}
+
+.photo-carousel__arrow--prev {
+  left: var(--space-3);
+}
+
+.photo-carousel__arrow--next {
+  right: var(--space-3);
+}
+
+.photo-carousel:hover .photo-carousel__arrow {
+  opacity: 1;
+}
+
+.photo-carousel__arrow:hover {
+  background: var(--color-white);
+}
+
+/* Na dotyku strzałki niepotrzebne — gest palcem wystarcza */
+@media (hover: none) {
+  .photo-carousel__arrow {
+    display: none;
+  }
+}

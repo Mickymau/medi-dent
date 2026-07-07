@@ -215,7 +215,80 @@ function initFloatingCta() {
   updateFloating();
 }
 
-/* ── MODUŁ 7: initFooterYear ────────────────────────────────────── */
+/* ── MODUŁ 7: initPhotoCarousel ──────────────────────────────── */
+
+function initPhotoCarousel() {
+  var carousels = document.querySelectorAll('.photo-carousel');
+  if (!carousels.length) return;
+
+  carousels.forEach(function(carousel) {
+    var track  = carousel.querySelector('.photo-carousel__track');
+    var slides = carousel.querySelectorAll('.photo-carousel__slide');
+    var dots   = carousel.querySelectorAll('.photo-carousel__dot');
+    var prevBtn = carousel.querySelector('.photo-carousel__arrow--prev');
+    var nextBtn = carousel.querySelector('.photo-carousel__arrow--next');
+    if (!track || !slides.length || !dots.length) return;
+
+    var currentIndex = 0;
+
+    function setActive(index) {
+      currentIndex = index;
+      dots.forEach(function(dot, i) {
+        var active = i === index;
+        dot.classList.toggle('is-active', active);
+        dot.setAttribute('aria-selected', active ? 'true' : 'false');
+      });
+    }
+
+    /* Wyznacz aktywny slajd na podstawie pozycji scrolla —
+       pewniejsze niż IntersectionObserver przy różnych szerokościach */
+    function updateActiveFromScroll() {
+      var index = Math.round(track.scrollLeft / track.clientWidth);
+      if (index < 0) index = 0;
+      if (index > slides.length - 1) index = slides.length - 1;
+      setActive(index);
+    }
+
+    function goTo(index) {
+      if (index < 0) index = 0;
+      if (index > slides.length - 1) index = slides.length - 1;
+      track.scrollTo({ left: track.clientWidth * index, behavior: 'smooth' });
+      setActive(index);
+    }
+
+    /* Klik w kropkę przewija do odpowiadającego slajdu */
+    dots.forEach(function(dot, i) {
+      dot.addEventListener('click', function() { goTo(i); });
+    });
+
+    /* Strzałki nawigacyjne (klik) */
+    if (prevBtn) prevBtn.addEventListener('click', function() { goTo(currentIndex - 1); });
+    if (nextBtn) nextBtn.addEventListener('click', function() { goTo(currentIndex + 1); });
+
+    /* Strzałki klawiatury — gdy karuzela ma fokus */
+    track.setAttribute('tabindex', '0');
+    track.addEventListener('keydown', function(e) {
+      if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        goTo(currentIndex + 1);
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        goTo(currentIndex - 1);
+      }
+    });
+
+    /* Scroll (palcem, trackpadem) aktualizuje aktywną kropkę */
+    var scrollTimeout;
+    track.addEventListener('scroll', function() {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(updateActiveFromScroll, 60);
+    }, { passive: true });
+
+    updateActiveFromScroll();
+  });
+}
+
+/* ── MODUŁ 8: initFooterYear ────────────────────────────────────── */
 
 function initFooterYear() {
   var el = document.getElementById('footer-year');
@@ -231,5 +304,6 @@ document.addEventListener('DOMContentLoaded', function() {
   initLazyImages();
   initFaq();
   initFloatingCta();
+  initPhotoCarousel();
   initFooterYear();
 });
