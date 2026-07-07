@@ -130,8 +130,8 @@ p {
 }
 
 ::selection {
-  background: var(--color-navy-12);
-  color:      var(--color-navy);
+  background: #6B7280;
+  color:      var(--color-white);
 }
 
 :focus-visible {
