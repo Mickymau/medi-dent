@@ -25,7 +25,10 @@ Bez formularza kontaktowego — tylko telefon (decyzja klienta).
 
 **Zakazane słowa:** „profesjonalny", „kompleksowy", „najwyższa jakość".
 
-**Deploy w PowerShell — komendy osobno, nigdy z `&&`.**
+**Deploy przez Git Bash — jednolinijkowy, łączony `&&`:**
+```bash
+git add . && git commit -m "opis" && git push
+```
 
 ---
 
